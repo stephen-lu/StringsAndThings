@@ -38,7 +38,7 @@ public class StringsAndThings {
      *           removeString("Hello there", "x") // Should return "Hello there"
      */
     public String removeString(String base, String remove){
-        return null;
+        return base.replaceAll(remove, "");
     }
 
     /**
@@ -50,7 +50,28 @@ public class StringsAndThings {
      *           containsEqualNumberOfIsAndNot("noisxxnotyynotxisi") // Should return true
      */
     public Boolean containsEqualNumberOfIsAndNot(String input){
-        return null;
+        int isCount = 0;
+        int notCount = 0;
+        int lastIndex = 0;
+
+        while (lastIndex != -1) {
+            lastIndex = input.indexOf("is", lastIndex);
+            if (lastIndex != -1) {
+                isCount++;
+                lastIndex += 2;
+            }
+        }
+
+        lastIndex = 0;
+        while (lastIndex != -1) {
+            lastIndex = input.indexOf("not", lastIndex);
+            if (lastIndex != -1) {
+                notCount++;
+                lastIndex += 2;
+            }
+        }
+
+        return isCount == notCount;
     }
 
     /**
