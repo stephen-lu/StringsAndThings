@@ -67,7 +67,7 @@ public class StringsAndThings {
             lastIndex = input.indexOf("not", lastIndex);
             if (lastIndex != -1) {
                 notCount++;
-                lastIndex += 3;
+                lastIndex += 2;
             }
         }
 
@@ -81,8 +81,24 @@ public class StringsAndThings {
      *           gHappy("xxgxx") // Should return  false
      *           gHappy("xxggyygxx") // Should return  false
      */
-    public Boolean gIsHappy(String input){
-        return input.contains("gg");
+    public Boolean gIsHappy(String input){Boolean happy = true;
+
+        for (int i = 0; i < input.length() - 1; i++) {
+            if (i > 0 && i < input.length() - 1 && input.charAt(i) == 'g') {
+                if (input.charAt(i-1) != 'g' && input.charAt(i+1) != 'g') {
+                    happy = false;
+                }
+            } else if (i == 0 && input.charAt(i) == 'g') {
+                if (input.charAt(i+1) != 'g') {
+                        happy = false;
+                }
+            } else if (i == input.length() - 1 && input.charAt(i) == 'g') {
+                if (input.charAt(i-1) != 'g') {
+                        happy = false;
+                }
+            }
+        }
+        return happy;
     }
 
 
