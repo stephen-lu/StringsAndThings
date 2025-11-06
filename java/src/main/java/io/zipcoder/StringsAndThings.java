@@ -81,7 +81,8 @@ public class StringsAndThings {
      *           gHappy("xxgxx") // Should return  false
      *           gHappy("xxggyygxx") // Should return  false
      */
-    public Boolean gIsHappy(String input){Boolean happy = true;
+    public Boolean gIsHappy(String input){
+        Boolean happy = true;
 
         for (int i = 0; i < input.length() - 1; i++) {
             if (i > 0 && i < input.length() - 1 && input.charAt(i) == 'g') {
